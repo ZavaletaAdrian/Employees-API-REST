@@ -1,0 +1,33 @@
+{
+  "name": "express-finalp",
+  "version": "1.0.0",
+  "description": "An API REST using express.js",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZavaletaAdrian/express-finalP.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "jwt",
+    "mysql"
+  ],
+  "author": "Adrian Zavaleta, Jorge Bernal, Andres Jimenez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZavaletaAdrian/express-finalP/issues"
+  },
+  "homepage": "https://github.com/ZavaletaAdrian/express-finalP#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.7"
+  }
+}
