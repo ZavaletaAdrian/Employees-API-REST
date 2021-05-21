@@ -20,15 +20,15 @@ user.post("/signin", async (req, res, next) =>{
 
 user.post("/login", async (req, res, next) => {
     const {mail, pass} = req.body;
-    
+
     const query = `SELECT * FROM employees WHERE mail = '${mail}' AND pass = '${pass}';`;
     const rows = await db.query(query);
 
     if(mail && pass){
         if(rows.length == 1){
             const token = jwt.sign({
-                employee_id: rows[0].employee_id,
-                employee_mail: rows[0].employee_mail
+                user_id: rows[0].user_id,
+                user_mail: rows[0].user_mail
             }, "debugkey");
             return res.status(200).json({ code: 200, message: token});
         }else{
