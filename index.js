@@ -3,7 +3,7 @@ const morgan = require("morgan");
 const express = require("express");
 const app = express();
 // Routes
-const employee = require("./routes/employees");
+const employees = require("./routes/employees");
 const user = require("./routes/user");
 // Middlewares
 const auth = require("./middleware/auth");
@@ -20,7 +20,7 @@ app.get("/", index);
 
 app.use("/user", user);
 app.use(auth);
-app.use("/employee", employee);
+app.use("/employees", employees);
 
 app.use(notFound);
 
