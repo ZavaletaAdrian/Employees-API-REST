@@ -7,7 +7,8 @@ user.post("/signin", async (req, res, next) =>{
     const {employee_name, last_name, mail, pass, phone_num, address} = req.body;
 
     if(employee_name && last_name && mail && pass && phone_num && address){
-        let query = `INSERT INTO employees VALUES (,'${employee_name}', '${last_name}', '${mail}', '${pass}', '${phone_num}', '${address}');`;
+        let query = "INSERT INTO employees employees (employee_name, last_name, mail, pass, phone_num, address) " 
+        query += `VALUES ('${employee_name}', '${last_name}', '${mail}', '${pass}', '${phone_num}', '${address}');`;
         const rows = await db.query(query);
 
         if(rows.affectedRows == 1){
@@ -27,8 +28,8 @@ user.post("/login", async (req, res, next) => {
     if(mail && pass){
         if(rows.length == 1){
             const token = jwt.sign({
-                user_id: rows[0].user_id,
-                user_mail: rows[0].user_mail
+                employee_id: rows[0].employee_id,
+                employee_mail: rows[0].employee_mail
             }, "debugkey");
             return res.status(200).json({ code: 200, message: token});
         }else{
