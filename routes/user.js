@@ -7,7 +7,7 @@ user.post("/signin", async (req, res, next) =>{
     const {employee_name, last_name, mail, pass, phone_num, address} = req.body;
 
     if(employee_name && last_name && mail && pass && phone_num && address){
-        let query = `INSERT INTO employees VALUES ('${employee_name}', '${last_name}', '${mail}', '${pass}', '${phone_num}', '${address}');`;
+        let query = `INSERT INTO employees VALUES (,'${employee_name}', '${last_name}', '${mail}', '${pass}', '${phone_num}', '${address}');`;
         const rows = await db.query(query);
 
         if(rows.affectedRows == 1){
