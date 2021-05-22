@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Main recursos humanos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    
+</head>
+<body>
+    <div id="container"><!--contenedor general del menu-->
+        <div id="menu" ><!--contenedor menu (arriba)-->
+           <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Acerca de</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </div><!--acaba menu-->
+    </div>
+
+    <div id="botones">
+          <button id="iniciarSesion" onclick="">Iniciar Sesión</button>
+		  <button id="registro" onclick="">Registrarme</button>
+    </div>
+    
+    <div id="cuerpo"></div>
+
+    <div class="textoImagen"><b>¿Estas listo para ser parte del futuro?</b></div>
+     
+    <div id="info">
+         <div id="imagenInfo"></div>
+         <div id="textoInfo">
+         <h1>Unete a nuestro equipo</h1>
+         <h2>para emprezar a cambiar el mundo</h2><br>
+         <h3>Te estamos buscando, </h3>
+         </div>
+    </div>     
+     
+</body>
+<style>
+    h1{
+        font-size: 28px;
+        font-family: 'Plus Jakarta', sans-serif;
+    }
+    h2{
+        font-size: 24px;
+        font-family: 'Plus Jakarta', sans-serif;
+    }
+    h3{
+        font-size: 18px;
+        font-family: 'Plus Jakarta', sans-serif;
+    }
+    #container{
+        width: 90%;
+        height: 50px;
+        margin-top: 15px;
+        margin-left: 65px;
+       
+    }
+    body{
+        background: #4286f4;
+        background: linear-gradient(to right, #373B44, #4286f4);
+    }
+
+    #menu{
+        padding: 0;
+        height: 49px;
+        background-color: #2d3436;
+        border-radius: 8px;
+        position: center;
+        border: 1px solid #dfe6e9;
+    }
+    #menu li{
+        display: inline;
+        margin-bottom: 2px;
+    }
+
+    #menu li a {
+        font-size:15px;
+        text-decoration: none;
+        margin-bottom: 5px;
+        float:left;
+        padding: 12px;
+        background-color: #2d3436;
+        color: #dfe6e9;
+        font-family: 'Plus Jakarta', sans-serif;
+    }
+
+    #menu li a:hover {
+        background-color: #2586d7;
+    }
+   button{
+       font-family: 'Plus Jakarta', sans-serif;
+       border: 2px solid #4286f4;
+		width: 150px; 
+		height: 30px;
+		border-radius: 10px; 
+        font-size: 15px;
+		background: #2d3436;
+		color:#dfe6e9;
+		cursor: pointer;		
+	}
+
+    #botones{
+        margin-top: -40px;
+
+    }
+
+    #iniciarSesion{
+        margin-left: 600px;
+    }
+
+    #registro{
+        margin-left: 10px;
+    }
+
+    button:hover {
+        background-color: #4286f4;
+    }
+    
+    #cuerpo{
+        width: 90%;
+        height: 250px;
+        margin-top: 30px;
+        margin-left:65px;
+        text-align:center;
+        background-image: url(img/ofi.jpg);
+        background-position: center center;
+        background-size: 100%;
+        filter: opacity(60%);
+      
+    }
+    .textoImagen{
+        position: absolute;
+        top: 170px;
+        left: 30%;
+        font-size: 32px;
+        color: #dfe6e9;
+        font-family: 'Plus Jakarta', sans-serif;
+
+    }
+
+    #info{
+        width: 90%;
+        background-color: #2d3436;
+        margin-left: 65px;
+        margin-top: 20px;
+        border-radius: 10px;
+        border: 2px solid #4286f4;
+    }
+
+    #imagenInfo{
+        width: 40%;
+        height: 250px;
+        margin-top: 0px;
+        text-align:center;
+        background-size: 100%;
+        background-image: url(img/compu3.jpg);
+        filter: opacity(80%);
+        border-radius: 10px;
+
+    }
+
+    #textoInfo{
+        width: 40%;
+        height: 200px;
+        margin-left: 525px;
+        margin-top: -200px;
+        color: #dfe6e9;
+    }
+    
+    
+    </style>
+</html>
