@@ -28,36 +28,64 @@ function loadEmployee(){
 function displayEmployee(employees) {
     
     //BUSCADOR
-    var body = document.getElementsByTagName("body")[0];
+    var body = document.getElementById("body");
+    var div = document.createElement("div");
+    div.setAttribute("class", "mb-4");
     var tabla = document.createElement("table");
     tabla.id = "resultado";
+    tabla.setAttribute("class", "class-form")
     var inputBuscador = document.createElement("input");
     inputBuscador.type = "text";
     inputBuscador.id = "inputTexto";
-    body.appendChild(inputBuscador);
-    body.appendChild(tabla);
+    inputBuscador.setAttribute("class", "form-control");
+    div.appendChild(inputBuscador);
+    div.appendChild(tabla);
+    body.appendChild(div);
 
     const inputTexto = document.querySelector('#inputTexto');
     const resultado = document.querySelector('#resultado');
+    resultado.innerHTML = `
+    <tr class="table-secondary">
+        <td class="table-primary">ID</td>
+        <td class="table-primary">Nombre(s)</td>
+        <td class="table-primary">Apellido(s)</td>
+        <td class="table-primary">Correo</td>
+        <td class="table-primary">Contraseña</td>
+        <td class="table-primary">Numero de Teléfono</td>
+        <td class="table-primary">Dirección</td>
+        <td class="table-primary">Borrar</td>
+        <td class="table-primary">Modificar</td>
+    </tr>`;
     for(let employee of employees){
             resultado.innerHTML += `
                 <tbody>
-                    <tr>
-                        <td id="id" value=${employee.employee_id}>${employee.employee_id}</td>
-                        <td>${employee.employee_name}</td>
-                        <td>${employee.last_name}</td>
-                        <td>${employee.mail}</td>
-                        <td>${employee.pass}</td>
-                        <td>${employee.phone_num}</td>
-                        <td>${employee.address}</td>
-                        <td><button onclick="Borrar(${employee.employee_id})">Eliminar</button></td>
-                        <td><button href='https://node-js-final.herokuapp.com/modify/${employee.employee_id}'>Modificar</button></td>
+                    <tr class="table-primary">
+                        <td class="table-primary"id="id" value=${employee.employee_id}>${employee.employee_id}</td>
+                        <td class="table-primary">${employee.employee_name}</td>
+                        <td class="table-primary">${employee.last_name}</td>
+                        <td class="table-primary">${employee.mail}</td>
+                        <td class="table-primary">${employee.pass}</td>
+                        <td class="table-primary">${employee.phone_num}</td>
+                        <td class="table-primary">${employee.address}</td>
+                        <td class="table-primary"><button class="btn btn-danger" onclick="Borrar(${employee.employee_id})">Eliminar</button></td>
+                        <td class="table-primary"><button class="btn btn-info" href='https://node-js-final.herokuapp.com/modify/${employee.employee_id}'>Modificar</button></td>
                     </tr>
                 </tbody>
             `}
 
     const filtrar = ()=>{
-        resultado.innerHTML = '';
+        resultado.innerHTML = `
+        <tr class="table-secondary">
+            <td class="table-primary">ID</td>
+            <td class="table-primary">Nombre(s)</td>
+            <td class="table-primary">Apellido(s)</td>
+            <td class="table-primary">Correo</td>
+            <td class="table-primary">Contraseña</td>
+            <td class="table-primary">Numero de Teléfono</td>
+            <td class="table-primary">Dirección</td>
+            <td class="table-primary">Borrar</td>
+            <td class="table-primary">Modificar</td>
+        </tr>`;
         const texto = inputTexto.value.toLowerCase();
         for(let employee of employees){
             let nombre = employee.employee_name.toLowerCase();
@@ -72,8 +100,8 @@ function displayEmployee(employees) {
                             <td>${employee.pass}</td>
                             <td>${employee.phone_num}</td>
                             <td>${employee.address}</td>
-                            <td><button onclick="Borrar(${employee.employee_id})">Eliminar</button></td>
-                            <td><button href='https://node-js-final.herokuapp.com/modify/${employee.employee_id}'>Modificar</button></td>
+                            <td><button class="btn btn-danger" onclick="Borrar(${employee.employee_id})">Eliminar</button></td>
+                            <td><button class="btn btn-info" href='https://node-js-final.herokuapp.com/modify/${employee.employee_id}'>Modificar</button></td>
                         </tr>
                     </tbody>
                 `
