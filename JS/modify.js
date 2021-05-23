@@ -26,6 +26,7 @@ function loadId(){
 }
 
 function infoInputs(empleado){
+
     
     var div = document.getElementsByClassName("mb-4");
     
