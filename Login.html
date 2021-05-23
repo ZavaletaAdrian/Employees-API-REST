@@ -10,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="bootstrap.bundle.min.js"></script>
+    <script src="./JS/login.js"></script>
 
     <style>
     body{
@@ -40,12 +41,12 @@
                     <form action="#">
                         <div class="mb-4">
                             <label for="email" class="form-label">Correo electronico</label>
-                            <input type="email" class="form-control name="email" placeholder="example@correo.com">
+                            <input type="email" class="form-control" id='mail' name="email" placeholder="example@correo.com">
                         </div>
                         
                         <div class="mb-4">
                         <label for="password" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control name="password" placeholder="**********">
+                        <input type="password" class="form-control" id='pass' name="password" placeholder="**********">
                         </div>
 
                         <div class="ml-3">
@@ -58,7 +59,7 @@
                         </div>
 
                         <div class="my-3">
-                            <span>¿No tienes cuenta? <a href="#"> Registrate</a></span><br>
+                            <span>¿No tienes cuenta? <a href="#" class='registrate'> Registrate</a></span><br>
                             <span>¿Has olvidado tu contraseña?<a href="#"> Recuperar contraseña</a></span><br>
                         </div>
 

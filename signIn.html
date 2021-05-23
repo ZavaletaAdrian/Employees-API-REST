@@ -9,6 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./JS/signin.js"></script>
 
     <style>
     body{
@@ -38,26 +39,41 @@
                     <!--singin-->
                     <form action="#">
                         <div class="mb-4">
-                            <label for="email" class="form-label">Correo electronico</label>
-                            <input type="email" class="form-control name="email" placeholder="example@correo.com">
+                            <label for="text" class="form-label">Nombre(s)</label>
+                            <input type="text" class="form-control" name="user_name" id="name" placeholder="Nombre(s)">
                         </div>
 
                         <div class="mb-4">
-                            <label for="text" class="form-label">Nombre de usuario</label>
-                            <input type="text" class="form-control name="user_name" placeholder="Aqui va tu nombre">
+                            <label for="text" class="form-label">Apellido(s)</label>
+                            <input type="text" class="form-control" name="user_name" id="last_name" placeholder="Apellido(s)">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="email" class="form-label">Correo electronico</label>
+                            <input type="email" class="form-control" name="email" id="mail" placeholder="example@mail.com">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" name="password" id="pass" placeholder="**********">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="text" class="form-label">Numero Telefonico</label>
+                            <input type="text" class="form-control" name="phone" id="phone_num" placeholder="(123) 111-22-33">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="text" class="form-label">Direccion</label>
+                            <input type="text" class="form-control" name="address" id="address" placeholder="Direccion">
                         </div>
                         
-                        <div class="mb-4">
-                        <label for="password" class="form-label">Contraseña</label>
-                        <input type="password" class="form-control name="password" placeholder="**********">
-                        </div>
-
                         <div class="d-grid text-center">
-                            <button type="submit" class="btn btn-primary">Registrarme</button><br><br>
+                            <button type="submit" class="btn btn-primary" id="registrarme">Registrarme</button><br><br>
                         </div>
 
                         <div class="my-3">
-                            <span>¿Ya tienes una cuenta? <a href="logIn.html"> Iniciar Sesión</a></span><br>
+                            <span>¿Ya tienes una cuenta? <a href="#" class='iniciarSesion'>Iniciar Sesión</a></span><br>
                             
                         </div>
 
