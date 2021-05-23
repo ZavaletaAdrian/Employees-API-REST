@@ -30,11 +30,13 @@ function displayEmployee(employees){
     for(var i = 0; i < employees.length; i++){
         // body.innerHTML += `<h3>${employees[i].employee_name}</h3>`;
         table.innerHTML += `<tr>`;
-        table.innerHTML += `<td>${employees[i].employee_id}</td>`;
-        table.innerHTML += `<td>${employees[i].employee_name}</td>`;
-        table.innerHTML += `<td>${employees[i].last_name}</td>`;
-        table.innerHTML += `<td>${employees[i].mail}</td>`;
-        table.innerHTML += `<td>${employees[i].pass}</td>`;
+        for(var j = 0; j < employees.length; j++){
+            table.innerHTML += `<td>${employees[i].employee_id}</td>`;
+            table.innerHTML += `<td>${employees[i].employee_name}</td>`;
+            table.innerHTML += `<td>${employees[i].last_name}</td>`;
+            table.innerHTML += `<td>${employees[i].mail}</td>`;
+            table.innerHTML += `<td>${employees[i].pass}</td>`;
+        }
         table.innerHTML += `</tr>`;
     }
 }
