@@ -50,8 +50,8 @@ function displayEmployee(employees) {
                         <td>${employee.pass}</td>
                         <td>${employee.phone_num}</td>
                         <td>${employee.address}</td>
-                        <td>Eliminar</td>
-                        <td>Modificar</td>
+                        <td><a href='https://node-js-final.herokuapp.com/delete/${employee.employee_id}'>Eliminar</a></td>
+                        <td><a href='https://node-js-final.herokuapp.com/modify/${employee.employee_id}'>Modificar</a></td>
                     </tr>
                 </tbody>
             `}
@@ -72,8 +72,8 @@ function displayEmployee(employees) {
                             <td>${employee.pass}</td>
                             <td>${employee.phone_num}</td>
                             <td>${employee.address}</td>
-                            <td>Eliminar</td>
-                            <td>Modificar</td>
+                            <td><a href='https://node-js-final.herokuapp.com/delete/${employee.employee_id}'>Eliminar</a></td>
+                            <td><a href='https://node-js-final.herokuapp.com/modify/${employee.employee_id}'>Modificar</a></td>
                         </tr>
                     </tbody>
                 `
