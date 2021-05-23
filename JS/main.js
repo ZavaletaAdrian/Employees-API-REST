@@ -6,6 +6,6 @@ function SignIn(){
 
 function Login(){
     document.getElementById('iniciarSesion').addEventListener('click', function(){
-        window.location.href = "login.html";
+        window.location.href = "logIn.html";
     });
 }
