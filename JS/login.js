@@ -18,8 +18,8 @@ function login(){
         method: 'post',
         url: 'https://node-js-final.herokuapp.com/user/login',
         data:{
-            employee_mail: mail,
-            pass: pass,
+            mail: mail,
+            pass: pass
         }
     }).then(function(res){
         if(res.data.code === 200){
