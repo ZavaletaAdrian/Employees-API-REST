@@ -25,7 +25,7 @@ function loadEmployee(){
     })
 }
 
-function displayEmployee(){
+function displayEmployee(employees){
     var body = document.querySelector("body");
     for(var i = 0; i < employees.length; i++){
         body.innerHTML += `<h3>${employees[i].employee_name}</h3>`;
