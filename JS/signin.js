@@ -34,7 +34,7 @@ function signin(){
     }).then(function(res){
         console.log(res);
         alert("Registro Exitoso!");
-        window.location.href = "employees.html";
+        window.location.href = "index.html";
     }).catch(function(err){
         console.log(err);
     });
