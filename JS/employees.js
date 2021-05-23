@@ -30,7 +30,7 @@ function displayEmployee(employees) {
   
     var tabla = document.createElement("table");
     var tblBody = document.createElement("tbody");
-    const atributos = [employee_id, employee_name, last_name, mail, pass, phone_num, address];
+    const atributos = ["employee_id", "employee_name", "last_name", "mail", "pass", "phone_num", "address"];
     for (var i = 0; i < employees.length; i++) {
       var hilera = document.createElement("tr");
       for (var j = 0; j < 7; j++) {
