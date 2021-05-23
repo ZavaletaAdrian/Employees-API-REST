@@ -69,9 +69,6 @@ employee.get("/", async (req, res, next) => {
 // Buscar empleado por ID
 employee.get('/:id([0-9]{1,3})', async (req, res, next) => {
     const id = req.params.id;
-    res.send({
-        'employee_id': id
-    });
     const empl = await db.query("SELECT * FROM employees WHERE employee_id = " + id);
     (empl) ? res.status(200).json({ code: 200, message: empl}) : res.status(404).json({ code: 404, message: "Empleado no encontrado"});
 });
