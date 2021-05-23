@@ -90,11 +90,11 @@ function displayEmployee(employees) {
 
 
 function Borrar(){
-    var id = document.getElementById('id').value;
+    var id = document.getElementById('id').innerHTML;
 
     axios({
         method: 'delete',
-        url: 'https://node-js-final.herokuapp.com/employees/delete',
+        url: 'https://node-js-final.herokuapp.com/employees/delete/',
         data:{
             id: id
         }
