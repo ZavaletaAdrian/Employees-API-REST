@@ -20,7 +20,7 @@ employee.post("/", async (req, res, next) =>{
     return res.status(500).json({code: 500, message: "Campos incompletos"});
 });
 // Eliminar empleados
-employee.delete("/:id([0-9]{1,3})", async (req, res, next) =>{
+employee.delete("delete/:id([0-9]{1,3})", async (req, res, next) =>{
     const query = `DELETE FROM employees WHERE employee_id=${req.params.id}`;
     const rows = await db.query(query);
     if(rows.affectedRows == 1){
@@ -29,7 +29,7 @@ employee.delete("/:id([0-9]{1,3})", async (req, res, next) =>{
     return res.status(404).json({code: 404, message: "Empleado no encontrado"});
 });
 // Modificar datos de empleados
-employee.put("/:id([0-9]{1,3})", async (req, res, next) =>{
+employee.put("modify/:id([0-9]{1,3})", async (req, res, next) =>{
     const { employee_name, last_name, phone_num, mail, address, pass} = req.body;
     
     if(employee_name && last_name && phone_num && mail && address && pass){
@@ -67,18 +67,18 @@ employee.get("/", async (req, res, next) => {
     return res.status(200).json({ code: 200, message: empl});
 });
 // Buscar empleado por ID
-employee.get('/:id([0-9]{1,3})', async (req, res, next) => {
-    const id = req.params.id;
-    const empl = await db.query("SELECT * FROM employees WHERE employee_id = " + id);
-    (id >= 1 && id <= 1000) ? res.status(200).json({ code: 200, message: empl}) : res.status(404).json({ code: 404, message: "Empleado no encontrado"});
-});
-// Buscar empleado por Nombre
-employee.get('/:name([A-Za-z]+)', async (req, res, next) => {
+// employee.get('/:id([0-9]{1,3})', async (req, res, next) => {
+//     const id = req.params.id;
+//     const empl = await db.query("SELECT * FROM employees WHERE employee_id = " + id);
+//     (id >= 1 && id <= 1000) ? res.status(200).json({ code: 200, message: empl}) : res.status(404).json({ code: 404, message: "Empleado no encontrado"});
+// });
+// // Buscar empleado por Nombre
+// employee.get('/:name([A-Za-z]+)', async (req, res, next) => {
 
-    const name = req.params.name;
-    const empl = await db.query("SELECT * FROM employees WHERE employee_name = '" + name.toLowerCase() + "'");
+//     const name = req.params.name;
+//     const empl = await db.query("SELECT * FROM employees WHERE employee_name = '" + name.toLowerCase() + "'");
 
-    (empl.length > 0) ? res.status(200).json({ code: 200, message: empl}) : res.status(404).json({ code: 404, message: "Empleado no encontrado"});
-});
+//     (empl.length > 0) ? res.status(200).json({ code: 200, message: empl}) : res.status(404).json({ code: 404, message: "Empleado no encontrado"});
+// });
 
 module.exports = employee;
