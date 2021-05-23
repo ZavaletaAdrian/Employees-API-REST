@@ -117,14 +117,11 @@ function displayEmployee(employees) {
 }
 
 function a(identificador){
-    axios.get(url + "employees/" + identificador, headers)
-    // axios({
-    //     method: 'post',
-    //     url: 'https://zavaletaadrian.github.io/express-finalP/formEmployee.html',
-    //     data:{
-    //         id: identificador
-    //     }
-    // })
+    axios.get("https://zavaletaadrian.github.io/express-finalP/" + "employees/formEmployee/",{
+        params:{
+            id: identificador
+        }
+    }, headers)
     .then(function(res){
         // alert(res.data.message);
         if(res.data.code === 200){
