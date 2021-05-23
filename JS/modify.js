@@ -15,11 +15,15 @@ function init(){
     }
 }
 
+var url_string = window.location.href; //window.location.href
+var url2 = new URL(url_string);
+var c = url2.searchParams.get("id");
 function loadId(){
-    axios.get(url + "employees/", headers)
+    // console.log(c);
+    axios.get(url + "employees/" + c, headers)
     .then(function(res){
-        // console.log(res);
-        infoInputs(res.data.message);
+        console.log(res);
+        infoInputs(res.data.message[0]);
     }).catch(function(err){
         console.log(err);
     })
@@ -27,7 +31,6 @@ function loadId(){
 
 function infoInputs(empleado){
 
-    
     var div = document.getElementsByClassName("mb-4");
     
     // INPUT TAG de ID
@@ -37,7 +40,7 @@ function infoInputs(empleado){
     inputID.setAttribute("class", "form-control");
     inputID.setAttribute("name", "employee_id");
     inputID.setAttribute("id", "employee_id");
-    inputID.setAttribute("value", empleado[0].employee_id);
+    inputID.setAttribute("value", JSON.stringify(empleado.employee_id));
     inputID.setAttribute("disabled", "");
     div[0].appendChild(inputID);
 
@@ -48,7 +51,7 @@ function infoInputs(empleado){
     inputEmployee_name.setAttribute("class", "form-control");
     inputEmployee_name.setAttribute("name", "employee_name");
     inputEmployee_name.setAttribute("id", "employee_name");
-    inputEmployee_name.setAttribute("value", empleado[0].employee_name);
+    inputEmployee_name.setAttribute("value", empleado.employee_name);
     inputEmployee_name.setAttribute("placeholder", "Nombre(s)");
     div[1].appendChild(inputEmployee_name);
 
@@ -59,7 +62,7 @@ function infoInputs(empleado){
     inputLast_name.setAttribute("class", "form-control");
     inputLast_name.setAttribute("name", "last_name");
     inputLast_name.setAttribute("id", "last_name");
-    inputLast_name.setAttribute("value", empleado[0].last_name);
+    inputLast_name.setAttribute("value", empleado.last_name);
     inputLast_name.setAttribute("placeholder", "Apellido(s)");
     div[2].appendChild(inputLast_name);
 
@@ -70,7 +73,7 @@ function infoInputs(empleado){
     inputMail.setAttribute("class", "form-control");
     inputMail.setAttribute("name", "mail");
     inputMail.setAttribute("id", "mail");
-    inputMail.setAttribute("value", empleado[0].mail);
+    inputMail.setAttribute("value", empleado.mail);
     inputMail.setAttribute("placeholder", "example@mail.com");
     div[3].appendChild(inputMail);
 
@@ -81,7 +84,7 @@ function infoInputs(empleado){
     inputPass.setAttribute("class", "form-control");
     inputPass.setAttribute("name", "password");
     inputPass.setAttribute("id", "pass");
-    inputPass.setAttribute("value", empleado[0].pass);
+    inputPass.setAttribute("value", empleado.pass);
     inputPass.setAttribute("placeholder", "**********");
     div[4].appendChild(inputPass);
 
@@ -92,7 +95,7 @@ function infoInputs(empleado){
     inputNumTel.setAttribute("class", "form-control");
     inputNumTel.setAttribute("name", "phone");
     inputNumTel.setAttribute("id", "phone_num");
-    inputNumTel.setAttribute("value", empleado[0].phone_num);
+    inputNumTel.setAttribute("value", empleado.phone_num);
     inputNumTel.setAttribute("placeholder", "(123) 111-22-33");
     div[5].appendChild(inputNumTel);
 
@@ -103,7 +106,7 @@ function infoInputs(empleado){
     inputAddress.setAttribute("class", "form-control");
     inputAddress.setAttribute("name", "address");
     inputAddress.setAttribute("id", "address");
-    inputAddress.setAttribute("value", empleado[0].address);
+    inputAddress.setAttribute("value", empleado.address);
     inputAddress.setAttribute("placeholder", "Direccion");
     div[6].appendChild(inputAddress);
 

@@ -118,19 +118,9 @@ function displayEmployee(employees) {
 
 function a(identificador){
     axios.get(url + "employees/" + identificador, headers)
-    // axios({
-    //     method: 'post',
-    //     url: 'https://zavaletaadrian.github.io/express-finalP/formEmployee.html',
-    //     data:{
-    //         id: identificador
-    //     }
-    // })
     .then(function(res){
-        // alert(res.data.message);
         if(res.data.code === 200){
-            // localStorage.setItem("token", res.data.message);
-            window.location.href = "formEmployee.html";
-            // alert("Empleado Eliminado Correctamente");
+            window.location.href = "formEmployee.html?id=" + identificador;
         }
     }).catch(function(err){
         console.log(err);
