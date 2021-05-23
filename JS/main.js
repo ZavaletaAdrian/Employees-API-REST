@@ -1,6 +1,6 @@
 function Login(){
     document.getElementById('iniciarSesion').addEventListener('click', function(){
-        window.location.href = "logIn.html";
+        window.location.href = "Login.html";
     });
 }
 
