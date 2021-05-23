@@ -92,15 +92,17 @@ function displayEmployee(employees) {
 function Borrar(identificador){
     // var id = document.getElementById('id'[]).value;
 
-    axios({
-        method: 'delete',
-        url: 'https://node-js-final.herokuapp.com/employees/delete/',
-        data:{
-            id: identificador
-        }
-    }).then(function(res){
+    // axios({
+    //     method: 'delete',
+    //     url: 'https://node-js-final.herokuapp.com/employees/delete/',
+    //     data:{
+    //         id: identificador
+    //     })
+
+    axios.delete(url + "employees/delete/" + identificador, headers)
+    .then(function(res){
         if(res.data.code === 200){
-            localStorage.setItem("token", res.data.message);
+            // localStorage.setItem("token", res.data.message);
             window.location.href = "employees.html";
             alert("Empleado Eliminado Correctamente");
         }else{
