@@ -43,14 +43,14 @@ function displayEmployee(employees) {
             resultado.innerHTML += `
                 <tbody>
                     <tr>
-                        <td>${employee.employee_id}</td>
+                        <td id="id">${employee.employee_id}</td>
                         <td>${employee.employee_name}</td>
                         <td>${employee.last_name}</td>
                         <td>${employee.mail}</td>
                         <td>${employee.pass}</td>
                         <td>${employee.phone_num}</td>
                         <td>${employee.address}</td>
-                        <td><a href='https://node-js-final.herokuapp.com/delete/${employee.employee_id}'>Eliminar</a></td>
+                        <td><a onclick="Borrar()">Eliminar</a></td>
                         <td><a href='https://node-js-final.herokuapp.com/modify/${employee.employee_id}'>Modificar</a></td>
                     </tr>
                 </tbody>
@@ -65,14 +65,14 @@ function displayEmployee(employees) {
                 resultado.innerHTML += `
                     <tbody>
                         <tr>
-                            <td>${employee.employee_id}</td>
+                            <td id="id">${employee.employee_id}</td>
                             <td>${employee.employee_name}</td>
                             <td>${employee.last_name}</td>
                             <td>${employee.mail}</td>
                             <td>${employee.pass}</td>
                             <td>${employee.phone_num}</td>
                             <td>${employee.address}</td>
-                            <td><a href='https://node-js-final.herokuapp.com/delete/${employee.employee_id}'>Eliminar</a></td>
+                            <td><a onclick="Borrar()">Eliminar</a></td>
                             <td><a href='https://node-js-final.herokuapp.com/modify/${employee.employee_id}'>Modificar</a></td>
                         </tr>
                     </tbody>
@@ -86,4 +86,27 @@ function displayEmployee(employees) {
         }
     }
     inputTexto.addEventListener('keyup', filtrar);
+}
+
+
+function Borrar(){
+    var id = document.getElementById('id').value;
+
+    axios({
+        method: 'delete',
+        url: 'https://node-js-final.herokuapp.com/employees/delete',
+        data:{
+            id: id
+        }
+    }).then(function(res){
+        if(res.data.code === 200){
+            localStorage.setItem("token", res.data.message);
+            window.location.href = "employees.html";
+            alert("Empleado Eliminado Correctamente");
+        }else{
+            alert("No puedes eliminar este usuario!");
+        }
+    }).catch(function(err){
+        console.log(err);
+    });
 }
