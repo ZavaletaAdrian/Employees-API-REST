@@ -29,7 +29,7 @@ employee.delete("/:id([0-9]{1,3})", async (req, res, next) =>{
     return res.status(404).json({code: 404, message: "Empleado no encontrado"});
 });
 // Modificar datos de empleados
-employee.put("modify/:id([0-9]{1,3})", async (req, res, next) =>{
+employee.put("/:id([0-9]{1,3})", async (req, res, next) =>{
     const { employee_name, last_name, phone_num, mail, address, pass} = req.body;
     
     if(employee_name && last_name && phone_num && mail && address && pass){
