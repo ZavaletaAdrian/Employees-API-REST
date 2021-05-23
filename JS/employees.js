@@ -99,7 +99,7 @@ function Borrar(identificador){
     //         id: identificador
     //     })
 
-    axios.delete(url + "employees/delete/" + identificador, headers)
+    axios.delete(url + "employees/" + identificador, headers)
     .then(function(res){
         if(res.data.code === 200){
             // localStorage.setItem("token", res.data.message);
