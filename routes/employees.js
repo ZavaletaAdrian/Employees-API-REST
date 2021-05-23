@@ -62,7 +62,7 @@ employee.patch("/:id([0-9]{1,3})", async (req, res, next) =>{
     return res.status(500).json({code: 500, message: "Campos incompletos"});
 });
 // Mostrar todos los empleados
-employee.get("/employees", async (req, res, next) => {
+employee.get("/", async (req, res, next) => {
     const empl =  await db.query("SELECT * FROM employees");
     return res.status(200).json({ code: 200, message: empl});
 });
