@@ -90,15 +90,6 @@ function displayEmployee(employees) {
 
 
 function Borrar(identificador){
-    // var id = document.getElementById('id'[]).value;
-
-    // axios({
-    //     method: 'delete',
-    //     url: 'https://node-js-final.herokuapp.com/employees/delete/',
-    //     data:{
-    //         id: identificador
-    //     })
-
     axios.delete(url + "employees/" + identificador, headers)
     .then(function(res){
         if(res.data.code === 200){
