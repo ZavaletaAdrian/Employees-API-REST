@@ -18,7 +18,7 @@ function init(){
 function loadEmployee(){
     axios.get(url + "employees", headers)
     .then(function(res){
-        console.log(res);
+        // console.log(res);
         displayEmployee(res.data.message);
     }).catch(function(err){
         console.log(err);
@@ -26,8 +26,15 @@ function loadEmployee(){
 }
 
 function displayEmployee(employees){
-    var body = document.querySelector("body");
+    var table = document.querySelector("table");
     for(var i = 0; i < employees.length; i++){
-        body.innerHTML += `<h3>${employees[i].employee_name}</h3>`;
+        // body.innerHTML += `<h3>${employees[i].employee_name}</h3>`;
+        table.innerHTML += `<tr>`;
+        table.innerHTML += `<td>${employees[i].employee_id}</td>`;
+        table.innerHTML += `<td>${employees[i].employee_name}</td>`;
+        table.innerHTML += `<td>${employees[i].last_name}</td>`;
+        table.innerHTML += `<td>${employees[i].mail}</td>`;
+        table.innerHTML += `<td>${employees[i].pass}</td>`;
+        table.innerHTML += `</tr>`;
     }
 }
