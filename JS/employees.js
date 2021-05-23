@@ -33,13 +33,21 @@ function displayEmployee(employees) {
   
     for (var i = 0; i < employees.length; i++) {
       var hilera = document.createElement("tr");
-      for (var j = 0; j < 2; j++) {
+      for (var j = 0; j < 4; j++) {
         var celda = document.createElement("td");
         var textoCelda = document.createTextNode(`${employees[i].employee_id}`);
-        var textoCelda = document.createTextNode(`${employees[i].employee_name}`);
-        var textoCelda = document.createTextNode(`${employees[i].last_name}`);
-        var textoCelda = document.createTextNode(`${employees[i].mail}`);
-        var textoCelda = document.createTextNode(`${employees[i].pass}`);
+        celda.appendChild(textoCelda);
+        hilera.appendChild(celda);
+        textoCelda = document.createTextNode(`${employees[i].employee_name}`);
+        celda.appendChild(textoCelda);
+        hilera.appendChild(celda);
+        textoCelda = document.createTextNode(`${employees[i].last_name}`);
+        celda.appendChild(textoCelda);
+        hilera.appendChild(celda);
+        textoCelda = document.createTextNode(`${employees[i].mail}`);
+        celda.appendChild(textoCelda);
+        hilera.appendChild(celda);
+        textoCelda = document.createTextNode(`${employees[i].pass}`);
         celda.appendChild(textoCelda);
         hilera.appendChild(celda);
       }
@@ -47,5 +55,4 @@ function displayEmployee(employees) {
     }
     tabla.appendChild(tblBody);
     body.appendChild(tabla);
-    tabla.setAttribute("border", "2");
 }
