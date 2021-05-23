@@ -25,16 +25,27 @@ function loadEmployee(){
     })
 }
 
-function displayEmployee(employees){
-    var table = document.querySelector("table");
-    for(var i = 0; i < employees.length; i++){
-        // body.innerHTML += `<h3>${employees[i].employee_name}</h3>`;
-        table.innerHTML += `<tr>`;
-        table.innerHTML += `<td>${employees[i].employee_id}</td>`;
-        table.innerHTML += `<td>${employees[i].employee_name}</td>`;
-        table.innerHTML += `<td>${employees[i].last_name}</td>`;
-        table.innerHTML += `<td>${employees[i].mail}</td>`;
-        table.innerHTML += `<td>${employees[i].pass}</td>`;
-        table.innerHTML += `</tr>`;
+function displayEmployee(employees) {
+    var body = document.getElementsByTagName("body")[0];
+  
+    var tabla = document.createElement("table");
+    var tblBody = document.createElement("tbody");
+  
+    for (var i = 0; i < employees.length; i++) {
+      var hilera = document.createElement("tr");
+      for (var j = 0; j < 2; j++) {
+        var celda = document.createElement("td");
+        var textoCelda = document.createTextNode(`${employees[i].employee_id}`);
+        var textoCelda = document.createTextNode(`${employees[i].employee_name}`);
+        var textoCelda = document.createTextNode(`${employees[i].last_name}`);
+        var textoCelda = document.createTextNode(`${employees[i].mail}`);
+        var textoCelda = document.createTextNode(`${employees[i].pass}`);
+        celda.appendChild(textoCelda);
+        hilera.appendChild(celda);
+      }
+      tblBody.appendChild(hilera);
     }
+    tabla.appendChild(tblBody);
+    body.appendChild(tabla);
+    tabla.setAttribute("border", "2");
 }
