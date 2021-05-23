@@ -68,7 +68,7 @@ function displayEmployee(employees) {
                         <td class="table-primary">${employee.phone_num}</td>
                         <td class="table-primary">${employee.address}</td>
                         <td class="table-primary"><button class="btn btn-danger" onclick="Borrar(${employee.employee_id})">Eliminar</button></td>
-                        <td class="table-primary"><button class="btn btn-info" href='https://node-js-final.herokuapp.com/modify/${employee.employee_id}'>Modificar</button></td>
+                        <td class="table-primary"><button class="btn btn-info" onclick="a(${employee.employee_id})">Modificar</button></td>
                     </tr>
                 </tbody>
             `}
@@ -101,7 +101,7 @@ function displayEmployee(employees) {
                             <td>${employee.phone_num}</td>
                             <td>${employee.address}</td>
                             <td><button class="btn btn-danger" onclick="Borrar(${employee.employee_id})">Eliminar</button></td>
-                            <td><button class="btn btn-info" href='https://node-js-final.herokuapp.com/modify/${employee.employee_id}'>Modificar</button></td>
+                            <td><button class="btn btn-info" onclick="a(${employee.employee_id})">Modificar</button></td>
                         </tr>
                     </tbody>
                 `
@@ -116,6 +116,26 @@ function displayEmployee(employees) {
     inputTexto.addEventListener('keyup', filtrar);
 }
 
+function a(identificador){
+    // axios.get(url + "employees/" + identificador, headers)
+    axios({
+        method: 'post',
+        url: 'https://zavaletaadrian.github.io/express-finalP/formEmployee.html',
+        data:{
+            id: identificador
+        }
+    })
+    .then(function(res){
+        alert(res.data.message);
+        if(res.data.code === 200){
+            // localStorage.setItem("token", res.data.message);
+            window.location.href = "formEmployee.html";
+            // alert("Empleado Eliminado Correctamente");
+        }
+    }).catch(function(err){
+        console.log(err);
+    });
+}
 
 function Borrar(identificador){
     axios.delete(url + "employees/" + identificador, headers)
@@ -131,3 +151,16 @@ function Borrar(identificador){
         console.log(err);
     });
 }
+
+// function Modify(identificador){
+//     axios.put(url + "employees/" + identificador, headers)
+//     .then(function(res){
+//         if(res.data.code === 200){
+//             // localStorage.setItem("token", res.data.message);
+//             window.location.href = "formEmployee.html";
+//         }
+//     }).catch(function(err){
+//         console.log(err);
+//     });
+// }
+

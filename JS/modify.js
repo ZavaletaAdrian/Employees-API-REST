@@ -9,13 +9,24 @@ function init(){
                 'Authorization': "bearer " + localStorage.getItem("token")
             }
         }
-        infoInputs();
+        loadId();
     }else{
         window.location.href = "index.html";
     }
 }
 
-function infoInputs(){
+function loadId(){
+    axios.get(url + "employees/", headers)
+    .then(function(res){
+        // console.log(res);
+        infoInputs(res.data.message);
+    }).catch(function(err){
+        console.log(err);
+    })
+}
+
+function infoInputs(empleado){
+    
     var div = document.getElementsByClassName("mb-4");
     
     // INPUT TAG de ID
@@ -25,6 +36,7 @@ function infoInputs(){
     inputID.setAttribute("class", "form-control");
     inputID.setAttribute("name", "employee_id");
     inputID.setAttribute("id", "employee_id");
+    inputID.setAttribute("value", empleado[0].employee_id);
     inputID.setAttribute("disabled", "");
     div[0].appendChild(inputID);
 
@@ -35,6 +47,7 @@ function infoInputs(){
     inputEmployee_name.setAttribute("class", "form-control");
     inputEmployee_name.setAttribute("name", "employee_name");
     inputEmployee_name.setAttribute("id", "employee_name");
+    inputEmployee_name.setAttribute("value", empleado[0].employee_name);
     inputEmployee_name.setAttribute("placeholder", "Nombre(s)");
     div[1].appendChild(inputEmployee_name);
 
@@ -45,6 +58,7 @@ function infoInputs(){
     inputLast_name.setAttribute("class", "form-control");
     inputLast_name.setAttribute("name", "last_name");
     inputLast_name.setAttribute("id", "last_name");
+    inputLast_name.setAttribute("value", empleado[0].last_name);
     inputLast_name.setAttribute("placeholder", "Apellido(s)");
     div[2].appendChild(inputLast_name);
 
@@ -55,6 +69,7 @@ function infoInputs(){
     inputMail.setAttribute("class", "form-control");
     inputMail.setAttribute("name", "mail");
     inputMail.setAttribute("id", "mail");
+    inputMail.setAttribute("value", empleado[0].mail);
     inputMail.setAttribute("placeholder", "example@mail.com");
     div[3].appendChild(inputMail);
 
@@ -65,6 +80,7 @@ function infoInputs(){
     inputPass.setAttribute("class", "form-control");
     inputPass.setAttribute("name", "password");
     inputPass.setAttribute("id", "pass");
+    inputPass.setAttribute("value", empleado[0].pass);
     inputPass.setAttribute("placeholder", "**********");
     div[4].appendChild(inputPass);
 
@@ -75,6 +91,7 @@ function infoInputs(){
     inputNumTel.setAttribute("class", "form-control");
     inputNumTel.setAttribute("name", "phone");
     inputNumTel.setAttribute("id", "phone_num");
+    inputNumTel.setAttribute("value", empleado[0].phone_num);
     inputNumTel.setAttribute("placeholder", "(123) 111-22-33");
     div[5].appendChild(inputNumTel);
 
@@ -85,6 +102,7 @@ function infoInputs(){
     inputAddress.setAttribute("class", "form-control");
     inputAddress.setAttribute("name", "address");
     inputAddress.setAttribute("id", "address");
+    inputAddress.setAttribute("value", empleado[0].address);
     inputAddress.setAttribute("placeholder", "Direccion");
     div[6].appendChild(inputAddress);
 
