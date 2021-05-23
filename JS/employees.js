@@ -26,59 +26,64 @@ function loadEmployee(){
 }
 
 function displayEmployee(employees) {
+    
+    //BUSCADOR
     var body = document.getElementsByTagName("body")[0];
     var tabla = document.createElement("table");
-    var tblBody = document.createElement("tbody");
-    for (var i = 0; i < employees.length; i++) {
-      var hilera = document.createElement("tr");
-
-          var celdaId = document.createElement("td");
-        var textoId = document.createTextNode(`${employees[i].employee_id}`);
-        celdaId.appendChild(textoId);
-        hilera.appendChild(celdaId);
-      
-        var celdaEmployee_name = document.createElement("td");
-        var textoEmployee_name = document.createTextNode(`${employees[i].employee_name}`);
-        celdaEmployee_name.appendChild(textoEmployee_name);
-        hilera.appendChild(celdaEmployee_name);
-
-        var celdaLast_name = document.createElement("td");
-        var textoLast_name = document.createTextNode(`${employees[i].last_name}`);
-        celdaLast_name.appendChild(textoLast_name);
-        hilera.appendChild(celdaLast_name);
-
-        var celdaMail = document.createElement("td");
-        var textoMail = document.createTextNode(`${employees[i].mail}`);
-        celdaMail.appendChild(textoMail);
-        hilera.appendChild(celdaMail);
-
-        var celdaPass = document.createElement("td");
-        var textoPass = document.createTextNode(`${employees[i].pass}`);
-        celdaPass.appendChild(textoPass);
-        hilera.appendChild(celdaPass);
-
-        var celdaPhone_num = document.createElement("td");
-        var textoPhone_num = document.createTextNode(`${employees[i].phone_num}`);
-        celdaPhone_num.appendChild(textoPhone_num);
-        hilera.appendChild(celdaPhone_num);
-
-        var celdaAddress = document.createElement("td");
-        var textoAddress = document.createTextNode(`${employees[i].address}`);
-        celdaAddress.appendChild(textoAddress);
-        hilera.appendChild(celdaAddress);
-
-        var celdaModif = document.createElement("td");
-        var textoModif = document.createTextNode(`Modificar`);
-        celdaModif.appendChild(textoModif);
-        hilera.appendChild(celdaModif);
-
-        var celdaBorrar = document.createElement("td");
-        var textoBorrar = document.createTextNode(`Borrar`);
-        celdaBorrar.appendChild(textoBorrar);
-        hilera.appendChild(celdaBorrar);
-
-      tblBody.appendChild(hilera);
-    }
-    tabla.appendChild(tblBody);
+    tabla.id = "resultado";
+    var inputBuscador = document.createElement("input");
+    inputBuscador.type = "text";
+    inputBuscador.id = "inputTexto";
+    body.appendChild(inputBuscador);
     body.appendChild(tabla);
+
+    const inputTexto = document.querySelector('#inputTexto');
+    const resultado = document.querySelector('#resultado');
+    for(let employee of employees){
+            resultado.innerHTML += `
+                <tbody>
+                    <tr>
+                        <td>${employee.employee_id}</td>
+                        <td>${employee.employee_name}</td>
+                        <td>${employee.last_name}</td>
+                        <td>${employee.mail}</td>
+                        <td>${employee.pass}</td>
+                        <td>${employee.phone_num}</td>
+                        <td>${employee.address}</td>
+                        <td>Eliminar</td>
+                        <td>Modificar</td>
+                    </tr>
+                </tbody>
+            `}
+
+    const filtrar = ()=>{
+        resultado.innerHTML = '';
+        const texto = inputTexto.value.toLowerCase();
+        for(let employee of employees){
+            let nombre = employee.employee_name.toLowerCase();
+            if(nombre.indexOf(texto) != -1){
+                resultado.innerHTML += `
+                    <tbody>
+                        <tr>
+                            <td>${employee.employee_id}</td>
+                            <td>${employee.employee_name}</td>
+                            <td>${employee.last_name}</td>
+                            <td>${employee.mail}</td>
+                            <td>${employee.pass}</td>
+                            <td>${employee.phone_num}</td>
+                            <td>${employee.address}</td>
+                            <td>Eliminar</td>
+                            <td>Modificar</td>
+                        </tr>
+                    </tbody>
+                `
+            }
+        }
+        if(resultado.innerHTML === ''){
+            resultado.innerHTML += `
+                <li>Empleado no encontrado</li>
+                `
+        }
+    }
+    inputTexto.addEventListener('keyup', filtrar);
 }
