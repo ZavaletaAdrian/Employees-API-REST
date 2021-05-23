@@ -62,10 +62,15 @@ function displayEmployee(employees) {
         celdaPhone_num.appendChild(textoPhone_num);
         hilera.appendChild(celdaPhone_num);
 
-        var celdaAddress = document.createElement("td");
-        var textoAddress = document.createTextNode(`${employees[i].address}`);
-        celdaAddress.appendChild(textoAddress);
-        hilera.appendChild(celdaAddress);
+        var celdaModif = document.createElement("td");
+        var textoModif = document.createTextNode(`Modificar`);
+        celdaModif.appendChild(textoModif);
+        hilera.appendChild(celdaModif);
+
+        var celdaBorrar = document.createElement("td");
+        var textoBorrar = document.createTextNode(`Borrar`);
+        celdaBorrar.appendChild(textoBorrar);
+        hilera.appendChild(celdaBorrar);
 
       tblBody.appendChild(hilera);
     }
