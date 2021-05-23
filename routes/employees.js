@@ -67,11 +67,11 @@ employee.get("/", async (req, res, next) => {
     return res.status(200).json({ code: 200, message: empl});
 });
 // Buscar empleado por ID
-// employee.get('/:id([0-9]{1,3})', async (req, res, next) => {
-//     const id = req.params.id;
-//     const empl = await db.query("SELECT * FROM employees WHERE employee_id = " + id);
-//     (id >= 1 && id <= 1000) ? res.status(200).json({ code: 200, message: empl}) : res.status(404).json({ code: 404, message: "Empleado no encontrado"});
-// });
+employee.get('/:id([0-9]{1,3})', async (req, res, next) => {
+    const id = req.params.id;
+    const empl = await db.query("SELECT * FROM employees WHERE employee_id = " + id);
+    (empl) ? res.status(200).json({ code: 200, message: empl}) : res.status(404).json({ code: 404, message: "Empleado no encontrado"});
+});
 // // Buscar empleado por Nombre
 // employee.get('/:name([A-Za-z]+)', async (req, res, next) => {
 
