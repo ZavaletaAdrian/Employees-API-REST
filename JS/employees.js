@@ -16,7 +16,7 @@ function init(){
 }
 
 function loadEmployee(){
-    axios.get(url + "/employees", headers)
+    axios.get(url + "employees", headers)
     .then(function(res){
         console.log(res);
         displayEmployee(res.data.message);
