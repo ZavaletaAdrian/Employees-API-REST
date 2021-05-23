@@ -43,14 +43,14 @@ function displayEmployee(employees) {
             resultado.innerHTML += `
                 <tbody>
                     <tr>
-                        <td id="id">${employee.employee_id}</td>
+                        <td id="id" value=${employee.employee_id}>${employee.employee_id}</td>
                         <td>${employee.employee_name}</td>
                         <td>${employee.last_name}</td>
                         <td>${employee.mail}</td>
                         <td>${employee.pass}</td>
                         <td>${employee.phone_num}</td>
                         <td>${employee.address}</td>
-                        <td><button onclick="Borrar()">Eliminar</button></td>
+                        <td><button onclick="Borrar(${employee.employee_id})">Eliminar</button></td>
                         <td><button href='https://node-js-final.herokuapp.com/modify/${employee.employee_id}'>Modificar</button></td>
                     </tr>
                 </tbody>
@@ -65,14 +65,14 @@ function displayEmployee(employees) {
                 resultado.innerHTML += `
                     <tbody>
                         <tr>
-                            <td id="id">${employee.employee_id}</td>
+                            <td id="id" value=${employee.employee_id}>${employee.employee_id}</td>
                             <td>${employee.employee_name}</td>
                             <td>${employee.last_name}</td>
                             <td>${employee.mail}</td>
                             <td>${employee.pass}</td>
                             <td>${employee.phone_num}</td>
                             <td>${employee.address}</td>
-                            <td><button onclick="Borrar()">Eliminar</button></td>
+                            <td><button onclick="Borrar(${employee.employee_id})">Eliminar</button></td>
                             <td><button href='https://node-js-final.herokuapp.com/modify/${employee.employee_id}'>Modificar</button></td>
                         </tr>
                     </tbody>
@@ -89,14 +89,14 @@ function displayEmployee(employees) {
 }
 
 
-function Borrar(){
-    var id = document.getElementById('id').innerHTML;
+function Borrar(identificador){
+    // var id = document.getElementById('id'[]).value;
 
     axios({
         method: 'delete',
         url: 'https://node-js-final.herokuapp.com/employees/delete/',
         data:{
-            id: id
+            id: identificador
         }
     }).then(function(res){
         if(res.data.code === 200){
