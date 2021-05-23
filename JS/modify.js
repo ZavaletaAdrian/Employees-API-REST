@@ -39,7 +39,7 @@ function infoInputs(empleado){
     inputID.setAttribute("type", "text");
     inputID.setAttribute("class", "form-control");
     inputID.setAttribute("name", "employee_id");
-    inputID.setAttribute("id", "employee_id");
+    inputID.setAttribute("id", "employee_idINP");
     inputID.setAttribute("value", JSON.stringify(empleado.employee_id));
     inputID.setAttribute("disabled", "");
     div[0].appendChild(inputID);
@@ -50,8 +50,9 @@ function infoInputs(empleado){
     inputEmployee_name.setAttribute("type", "text");
     inputEmployee_name.setAttribute("class", "form-control");
     inputEmployee_name.setAttribute("name", "employee_name");
-    inputEmployee_name.setAttribute("id", "employee_name");
-    inputEmployee_name.setAttribute("value", empleado.employee_name);
+    inputEmployee_name.setAttribute("id", "employee_nameINP");
+    var valueInputEmployee_Name = JSON.stringify(empleado.employee_name).replace(/['"]+/g, '');
+    inputEmployee_name.setAttribute("value", valueInputEmployee_Name);
     inputEmployee_name.setAttribute("placeholder", "Nombre(s)");
     div[1].appendChild(inputEmployee_name);
 
@@ -61,8 +62,9 @@ function infoInputs(empleado){
     inputLast_name.setAttribute("type", "text");
     inputLast_name.setAttribute("class", "form-control");
     inputLast_name.setAttribute("name", "last_name");
-    inputLast_name.setAttribute("id", "last_name");
-    inputLast_name.setAttribute("value", empleado.last_name);
+    inputLast_name.setAttribute("id", "last_nameINP");
+    var valueInputLast_Name =  JSON.stringify(empleado.last_name).replace(/['"]+/g, '');
+    inputLast_name.setAttribute("value", valueInputLast_Name);
     inputLast_name.setAttribute("placeholder", "Apellido(s)");
     div[2].appendChild(inputLast_name);
 
@@ -72,8 +74,9 @@ function infoInputs(empleado){
     inputMail.setAttribute("type", "text");
     inputMail.setAttribute("class", "form-control");
     inputMail.setAttribute("name", "mail");
-    inputMail.setAttribute("id", "mail");
-    inputMail.setAttribute("value", empleado.mail);
+    inputMail.setAttribute("id", "mailINP");
+    var valueInputMail = JSON.stringify(empleado.mail).replace(/['"]+/g, '');
+    inputMail.setAttribute("value", valueInputMail);
     inputMail.setAttribute("placeholder", "example@mail.com");
     div[3].appendChild(inputMail);
 
@@ -83,8 +86,9 @@ function infoInputs(empleado){
     inputPass.setAttribute("type", "password");
     inputPass.setAttribute("class", "form-control");
     inputPass.setAttribute("name", "password");
-    inputPass.setAttribute("id", "pass");
-    inputPass.setAttribute("value", empleado.pass);
+    inputPass.setAttribute("id", "passINP");
+    var valueInputPass = JSON.stringify(empleado.pass).replace(/['"]+/g, '');
+    inputPass.setAttribute("value", valueInputPass);
     inputPass.setAttribute("placeholder", "**********");
     div[4].appendChild(inputPass);
 
@@ -94,8 +98,9 @@ function infoInputs(empleado){
     inputNumTel.setAttribute("type", "text");
     inputNumTel.setAttribute("class", "form-control");
     inputNumTel.setAttribute("name", "phone");
-    inputNumTel.setAttribute("id", "phone_num");
-    inputNumTel.setAttribute("value", empleado.phone_num);
+    inputNumTel.setAttribute("id", "phone_numINP");
+    var valueInputPhone_Num = JSON.stringify(empleado.phone_num).replace(/['"]+/g, '');
+    inputNumTel.setAttribute("value", valueInputPhone_Num);
     inputNumTel.setAttribute("placeholder", "(123) 111-22-33");
     div[5].appendChild(inputNumTel);
 
@@ -105,8 +110,9 @@ function infoInputs(empleado){
     inputAddress.setAttribute("type", "text");
     inputAddress.setAttribute("class", "form-control");
     inputAddress.setAttribute("name", "address");
-    inputAddress.setAttribute("id", "address");
-    inputAddress.setAttribute("value", empleado.address);
+    inputAddress.setAttribute("id", "addressINP");
+    var valueInputAddress = JSON.stringify(empleado.address).replace(/['"]+/g, '');
+    inputAddress.setAttribute("value", valueInputAddress);
     inputAddress.setAttribute("placeholder", "Direccion");
     div[6].appendChild(inputAddress);
 
@@ -114,30 +120,39 @@ function infoInputs(empleado){
 }
 
 function Modify(){
-    var id = document.getElementById('employee_id').value;
-    var name = document.getElementById('employee_name').value;
-    var last_name = document.getElementById('last_name').value;
-    var mail = document.getElementById('mail').value;
-    var pass = document.getElementById('pass').value;
-    var phone_num = document.getElementById('phone_num').value;
-    var address = document.getElementById('address').value;
+    var id = document.getElementById('employee_idINP').value;
+    var name = document.getElementById('employee_nameINP').value;
+    var last_name = document.getElementById('last_nameINP').value;
+    var mail = document.getElementById('mailINP').value;
+    var pass = document.getElementById('passINP').value;
+    var phone_num = document.getElementById('phone_numINP').value;
+    var address = document.getElementById('addressINP').value;
+    
+    console.log(id);
+    console.log(name);
+    console.log(mail);
+    console.log(last_name);
+    console.log(pass);
+    console.log(phone_num);
+    console.log(address);
 
     axios({
         method: 'put',
-        url: 'https://node-js-final.herokuapp.com/employees/' + id,
+        url: url + 'employees/' + id,
         data:{
             employee_name: name,
             last_name: last_name,
-            mail: mail,
-            pass: pass,
             phone_num: phone_num,
-            address: address
+            mail: mail,
+            address: address,
+            pass: pass
         }
     }).then(function(res){
-        console.log(res);
+        console.log(JSON.stringify(res));
         alert("Actualización Exitosa!");
         window.location.href = "employees.html";
     }).catch(function(err){
         console.log(err);
     });
 }
+
