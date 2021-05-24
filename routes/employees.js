@@ -29,27 +29,27 @@ employee.delete("/:id([0-9]{1,3})", async (req, res, next) =>{
     return res.status(404).json({code: 404, message: "Empleado no encontrado"});
 });
 // Modificar datos de empleados
-// employee.put("/:id([0-9]{1,3})", async (req, res, next) =>{
-//     const { employee_name, last_name, phone_num, mail, address, pass} = req.body;
+employee.put("/:id([0-9]{1,3})", async (req, res, next) =>{
+    const { employee_name, last_name, phone_num, mail, address, pass} = req.body;
     
-//     if(employee_name && last_name && phone_num && mail && address && pass){
-//         let query = `UPDATE employees SET employee_name='${employee_name}',last_name=${last_name},phone_num=${phone_num},mail=${mail},address=${address},pass=${pass} WHERE employee_id=${req.params.id}`;
+    if(employee_name && last_name && phone_num && mail && address && pass){
+        let query = `UPDATE employees SET employee_name='${employee_name}',last_name=${last_name},phone_num=${phone_num},mail=${mail},address=${address},pass=${pass} WHERE employee_id=${req.params.id}`;
     
-//         const rows = await db.query(query);
+        const rows = await db.query(query);
     
-//         if(rows.affectedRows == 1){
-//             return res.status(200).json({code: 200, message: "Empleado actualizado correctamente"});
-//         }    
+        if(rows.affectedRows == 1){
+            return res.status(200).json({code: 200, message: "Empleado actualizado correctamente"});
+        }    
     
-//         return res.status(500).json({code: 500, message: "Ocurrió un error"});
-//     }
-//     return res.status(500).json({code: 500, message: "Campos incompletos"});
+        return res.status(500).json({code: 500, message: "Ocurrió un error"});
+    }
+    return res.status(500).json({code: 500, message: "Campos incompletos"});
 
-// });
+});
 
 employee.patch("/:id([0-9]{1,3})", async (req, res, next) =>{
     if(req.body.employee_name){
-        let query = `UPDATE employees SET employee_name='${employee_name}',last_name=${last_name},phone_num=${phone_num},mail=${mail},address=${address},pass=${pass} WHERE employee_id=${req.params.id}`;
+        let query = `UPDATE employees SET employee_name='${req.body.employee_name}' WHERE employee_id=${req.params.id}`;
     
         const rows = await db.query(query);
     
