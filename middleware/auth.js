@@ -8,6 +8,6 @@ module.exports = (req,res,next)=>{
         next();
     } 
     catch (error) {
-        res.status(401).json({ code: 401, message: 'No cuentas con los permisos necesarios.'});
+        res.status(401).json({ code: 401, message: error});
     }
 }
