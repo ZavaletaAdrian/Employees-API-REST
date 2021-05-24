@@ -30,11 +30,11 @@ employee.delete("/:id([0-9]{1,3})", async (req, res, next) =>{
     return res.status(404).json({code: 404, message: "Empleado no encontrado"});
 });
 // Modificar datos de empleados
-employee.put("/:id([0-9]{1,3})", async (req, res, next) =>{
-    const { employee_name, last_name, phone_num, mail, address, pass} = req.body;
+employee.put("/", async (req, res, next) =>{
+    const { id,employee_name, last_name, phone_num, mail, address, pass} = req.body;
     
-    if(employee_name && last_name && phone_num && mail && address && pass){
-        let query = `UPDATE employees SET employee_name='${employee_name}',last_name=${last_name},phone_num=${phone_num},mail=${mail},address=${address},pass=${pass} WHERE employee_id=${req.params.id}`;    
+    if(id && employee_name && last_name && phone_num && mail && address && pass){
+        let query = `UPDATE employees SET employee_name='${employee_name}',last_name=${last_name},phone_num=${phone_num},mail=${mail},address=${address},pass=${pass} WHERE employee_id=${id}`;    
         const rows = await db.query(query);
     
         if(rows.affectedRows == 1){
