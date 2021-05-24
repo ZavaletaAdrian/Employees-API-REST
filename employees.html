@@ -14,6 +14,112 @@
     <!-- <script src="bootstrap.bundle.min.js"></script> -->
 </head>
 <body id="body">
+    <div class="container">
     <h1>Empleados</h1>
+    <div class="box"><!--BUSCADOR-->
+    <input type="text" name="search" placehonder="Buscar empleados" class="src" autocomplete="off">
+    <!--Boton para buascar, no se si sea necesario-->
+    <!--<button id="buscar" onclick="">Buscar</button>-->
+    </div>
+    </div>
+
+<!-- 
+    <div class="">
+    <h1 align="center">Resultados</h1>
+    <table width="70%" border="1px" align="center">
+     <tr align="center">
+        <td>Nombre</td>
+        <td>Apellidos</td>
+        <td>Correo electronico</td>
+        <td>Teléfono</td>
+        <td>Dirección</td>
+        <td>Borrar</td>
+        <td>Modificar</td>
+    </tr>
+    </div>
+-->
 </body>
+<style>
+    body{
+        background: #4286f4;
+        background: linear-gradient(to right, #373B44, #4286f4);
+    }
+    h1{
+        font-size: 23px;
+        font-family: 'Plus Jakarta', sans-serif;
+    }
+    .container{
+        width: 90%;
+        height: 50px;
+        background-color: #2d3436;
+        padding: 5px;
+        margin-top: 15px;
+        color: #dfe6e9;
+        border-radius: 8px;
+        border: 1px solid #dfe6e9;
+    }
+
+    /*BUSCADOR*/
+    .box{
+        position: absolute;
+        margin-top: -33px;
+        margin-left: 1120px;
+        transform: translate(-100%, 0%);
+    }
+    input.src{
+        padding: 9px 10px 9px 32px;
+        outline: none;
+        font-size: 18px;
+        border-radius: 15px;
+        color: #2d3436;
+        border: 3px solid #4286f4;
+        background: #dfe6e9 url(img/search-icon.png) no-repeat 9px center;
+        width: 80px;
+        height: 35px;
+        transition: all .5s;
+
+    }
+
+    input.src:hover{
+        width: 180px;
+        background-color: #dfe6e9;
+        border-color: #dfe6e9;
+        box-shadow: 0 0 5px #2d3436;
+    }
+
+    /*ESTILO BOTON BUSCAR*/
+       button{
+       font-family: 'Plus Jakarta', sans-serif;
+       border: 2px solid #4286f4;
+		width: 150px; 
+		height: 30px;
+		border-radius: 10px; 
+        font-size: 15px;
+		background: #2d3436;
+		color:#dfe6e9;
+		cursor: pointer;		
+	}
+    
+    /*ESTILO DE LA TABLA(S)*/
+    .table-primary{
+         width: 80%;
+        height: 50px;
+        margin-left: 10%;
+    }
+
+    .table-secondary{
+        width: 80%;
+        height: 50px;
+        margin-left: 10%;
+        
+    }
+    
+    td{
+        background-color: #2d3436;
+        color: #dfe6e9;
+        border-color: #2d3436;
+        font-family: 'Plus Jakarta', sans-serif;
+
+    }
+    </style>
 </html>
