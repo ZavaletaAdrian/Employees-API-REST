@@ -140,7 +140,10 @@ function Modify(){
 
     axios({
         method: 'put',
-        url: 'https://node-js-final.herokuapp.com/employees/modify',
+        headers: {
+            "X-Auth-Token": localStorage.getItem("token")
+          },
+        url: 'https://node-js-final.herokuapp.com/employees',
         data:{
             employee_name: name,
             last_name: last_name,
