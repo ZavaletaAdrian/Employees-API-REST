@@ -32,30 +32,37 @@ function Crear(){
 }
 
 function CreateEmployee(){
-    var name = document.getElementById('name').value;
-    var last_name = document.getElementById('last_name').value;
-    var mail = document.getElementById('mail').value;
-    var pass = document.getElementById('pass').value;
-    var phone_num = document.getElementById('phone_num').value;
-    var address = document.getElementById('address').value;
+
+    var name = document.getElementById('name');
+    var last_name = document.getElementById('last_name');
+    var mail = document.getElementById('mail');
+    var pass = document.getElementById('pass');
+    var phone_num = document.getElementById('phone_num');
+    var address = document.getElementById('address');
 
     axios({
+        url: url + 'employees/',
         method: 'post',
-        url: 'https://node-js-final.herokuapp.com/user/signin',
-        data:{
-            employee_name: name,
-            last_name: last_name,
-            mail: mail,
-            pass: pass,
-            phone_num: phone_num,
-            address: address
+        headers: {
+            'Authorization': "Bearer " + localStorage.getItem("token")
+        },
+        data: {
+            employee_name: name.value,
+            last_name: last_name.value,
+            mail: mail.value,
+            pass: pass.value,
+            phone_num: phone_num.value,
+            address: address.value,
         }
-    }).then(function(res){
-        console.log(res);
-        alert("Registro Exitoso!");
-        window.location.href = "employees.html";
-    }).catch(function(err){
-        console.log(err);
+    }).then(res => {
+        if(res.data.code === 201){
+            // localStorage.setItem("token", res.data.message);
+            console.log(res);
+            alert("Empleado Creado Exitosamente!");
+            window.location.href = "employees.html";
+        }
+    }).catch(error =>{
+        console.log(error.response);
     });
 }
 
