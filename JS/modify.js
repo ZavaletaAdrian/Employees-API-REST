@@ -120,6 +120,7 @@ function infoInputs(empleado){
 }
 
 function Modify(){
+    try {
     var id = document.getElementById('employee_idINP').value;
     var name = document.getElementById('employee_nameINP').value;
     var last_name = document.getElementById('last_nameINP').value;
@@ -128,31 +129,36 @@ function Modify(){
     var phone_num = document.getElementById('phone_numINP').value;
     var address = document.getElementById('addressINP').value;
     
-    console.log(id);
-    console.log(name);
-    console.log(mail);
-    console.log(last_name);
-    console.log(pass);
-    console.log(phone_num);
-    console.log(address);
-
-    axios({
-        method: 'put',
-        url: url + 'employees/' + id,
-        data:{
-            employee_name: name,
-            last_name: last_name,
-            phone_num: phone_num,
-            mail: mail,
-            address: address,
-            pass: pass
-        }
-    }).then(function(res){
-        console.log(JSON.stringify(res));
-        alert("Actualización Exitosa!");
-        window.location.href = "employees.html";
-    }).catch(function(err){
-        console.log(err);
-    });
+    // console.log(id);
+    // console.log(name);
+    // console.log(mail);
+    // console.log(last_name);
+    // console.log(pass);
+    // console.log(phone_num);
+    // console.log(address);
+    // console.log('https://node-js-final.herokuapp.com/employees/' + id);
+        axios({
+            method: 'put',
+            url: 'https://node-js-final.herokuapp.com/employees/' + id,
+            data:{
+                employee_name: name,
+                last_name: last_name,
+                phone_num: phone_num,
+                mail: mail,
+                address: address,
+                pass: pass
+            }
+        }).then(function(res){
+            if(res.data.code === 200){
+                localStorage.setItem("token", res.data.message);
+                console.log(JSON.stringify(res));
+                alert("Actualización Exitosa!");
+                window.location.href = "employees.html";
+            }
+        }).catch(function(err){
+            console.log(err);
+        });
+    } catch (error) {
+        console.log(error);
+    }
 }
-
