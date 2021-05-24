@@ -15,13 +15,13 @@
 </head>
 <body id="body">
     <div class="container">
-    <h1>Empleados</h1>
-    <div class="box"><!--BUSCADOR-->
-    <input type="text" name="search" placehonder="Buscar empleados" class="src" id = "inputTexto" autocomplete="off" >
-    <button id="crear" onclick="Crear()">Crear empleado</button>
-    <!--Boton para buascar, no se si sea necesario-->
-    <!--<button id="buscar" onclick="">Buscar</button>-->
-    </div>
+        <h1>Empleados Taller Node JS S.A. de C.V.</h1>
+        <div class="box"><!--BUSCADOR-->
+            <input type="text" name="search" placehonder="Buscar empleados" class="src" id = "inputTexto" autocomplete="off" >
+            <button id="crear" onclick="Crear()">Crear empleado</button>
+        <!--Boton para buascar, no se si sea necesario-->
+        <!--<button id="buscar" onclick="">Buscar</button>-->
+        </div>
     </div>
 
 <!-- 
@@ -50,14 +50,27 @@
         font-family: 'Plus Jakarta', sans-serif;
     }
     .container{
-        width: 90%;
+        position: relative;
+        width: 100%;
         height: 50px;
         background-color: #2d3436;
         padding: 5px;
-        margin-top: 15px;
+        margin-top: 10px;
         color: #dfe6e9;
         border-radius: 8px;
         border: 1px solid #dfe6e9;
+    }
+    .table{
+        position: absolute;
+        width: 90%;
+        height: 50px;
+        left: 60px;
+        text-align: center;
+        /* background-color: #2d3436; */
+        padding: 5px;
+        margin-top: 10px;
+        border-radius: 8px;
+        /* border: 1px solid #dfe6e9; */
     }
 
     /*BUSCADOR*/
@@ -65,13 +78,16 @@
         position: absolute;
         margin-top: -33px;
         margin-left: 1120px;
+        margin-bottom: 10px;
+        height: 50px;
         transform: translate(-100%, 0%);
     }
     input.src{
+        margin-bottom: 10px;
         padding: 9px 10px 9px 32px;
         outline: none;
         font-size: 18px;
-        border-radius: 15px;
+        border-radius: 10px;
         color: #2d3436;
         border: 3px solid #4286f4;
         background: #dfe6e9 url(img/search-icon.png) no-repeat 9px center;

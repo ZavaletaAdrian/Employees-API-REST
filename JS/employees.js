@@ -64,7 +64,7 @@ function displayEmployee(employees) {
     //BUSCADOR
     var body = document.getElementById("body");
     var div = document.createElement("div");
-    div.setAttribute("class", "box");
+    div.setAttribute("class", "table");
     div.setAttribute("style", "margin: 20px, 20px, 20px");
     var tabla = document.createElement("table");
     tabla.id = "resultado";
