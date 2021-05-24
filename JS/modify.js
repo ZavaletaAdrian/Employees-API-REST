@@ -115,54 +115,60 @@ function infoInputs(empleado){
     inputAddress.setAttribute("value", valueInputAddress);
     inputAddress.setAttribute("placeholder", "Direccion");
     div[6].appendChild(inputAddress);
-
-
+    
+    
 }
-
+// inputRegistrarme.addEventListener()
 function Modify(){
     var id = document.getElementById('employee_idINP').value;
     id = parseInt(id);
-    var name = document.getElementById('employee_nameINP').value;
-    var last_name = document.getElementById('last_nameINP').value;
-    var mail = document.getElementById('mailINP').value;
-    var pass = document.getElementById('passINP').value;
-    var phone_num = document.getElementById('phone_numINP').value;
-    var address = document.getElementById('addressINP').value;
+    var name = document.getElementById('employee_nameINP');
+    var last_name = document.getElementById('last_nameINP');
+    var mail = document.getElementById('mailINP');
+    var pass = document.getElementById('passINP');
+    var phone_num = document.getElementById('phone_numINP');
+    var address = document.getElementById('addressINP');
     
-    // console.log(id);
-    // console.log(name);
-    // console.log(mail);
+    axios({
+        url: url + 'employees/',
+        method: 'put',
+        headers: {
+            Accept: 'application/json',
+            "Content-type": 'application/json'
+        },
+        data: {
+            employee_name: name.value,
+            last_name: last_name.value,
+            phone_num: phone_num.value,
+            mail: mail.value,
+            address: address.value,
+            pass: pass.value,
+            id : id
+        }
+    }).then(res => {
+        if(res.data.code === 200){
+            // localStorage.setItem("token", res.data.message);
+            console.log(res);
+            // alert("Actualización Exitosa!");
+            window.location.href = "employees.html";
+        }
+    }).catch(error =>{
+        console.log(error.response);
+    });
+};
+// console.log(id);
+// console.log(name);
+// console.log(mail);
     // console.log(last_name);
     // console.log(pass);
     // console.log(phone_num);
     // console.log(address);
     // console.log('https://node-js-final.herokuapp.com/employees/' + id);
 
-    axios({
-        method: 'put',
-        headers: {
-            "X-Auth-Token": localStorage.getItem("token")
-          },
-        url: 'https://node-js-final.herokuapp.com/employees',
-        data:{
-            employee_name: name,
-            last_name: last_name,
-            phone_num: phone_num,
-            mail: mail,
-            address: address,
-            pass: pass,
-            id : id
-        }
-        }).then(res => {
-            if(res.data.code === 200){
-                // localStorage.setItem("token", res.data.message);
-                console.log(res);
-                // alert("Actualización Exitosa!");
-                window.location.href = "employees.html";
-            }
-        }).catch(error =>{
-            console.log(error.response);
-        });
+    // axios.put(url + 'employees/', {
+    //     headers,
+    //     data:{
+    //     }
     
 
     //     method: "PUT",
@@ -189,4 +195,3 @@ function Modify(){
     // }).catch(error =>{
     //     console.log(error.response);
     // });
-}

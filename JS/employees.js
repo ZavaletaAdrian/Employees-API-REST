@@ -46,15 +46,15 @@ function displayEmployee(employees) {
     const resultado = document.querySelector('#resultado');
     resultado.innerHTML = `
     <tr class="table-secondary">
-        <td class="table-primary">ID</td>
-        <td class="table-primary">Nombre(s)</td>
-        <td class="table-primary">Apellido(s)</td>
-        <td class="table-primary">Correo</td>
-        <td class="table-primary">Contraseña</td>
-        <td class="table-primary">Numero de Teléfono</td>
-        <td class="table-primary">Dirección</td>
-        <td class="table-primary">Borrar</td>
-        <td class="table-primary">Modificar</td>
+        <td class="table-primary" style="color:black">ID</td>
+        <td class="table-primary" style="color:black">Nombre(s)</td>
+        <td class="table-primary" style="color:black">Apellido(s)</td>
+        <td class="table-primary" style="color:black">Correo</td>
+        <td class="table-primary" style="color:black">Contraseña</td>
+        <td class="table-primary" style="color:black">Numero de Teléfono</td>
+        <td class="table-primary" style="color:black">Dirección</td>
+        <td class="table-primary" style="color:black">Borrar</td>
+        <td class="table-primary" style="color:black">Modificar</td>
     </tr>`;
     for(let employee of employees){
             resultado.innerHTML += `
