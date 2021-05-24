@@ -138,17 +138,17 @@ function Modify(){
     // console.log(address);
     // console.log('https://node-js-final.herokuapp.com/employees/' + id);
 
-    axios.put("https://node-js-final.herokuapp.com/employees/", {
-        params: id,
-        token: localStorage.getItem("token"),
+    axios({
+        method: 'put',
+        url: 'https://node-js-final.herokuapp.com/employees/modify',
         data:{
-            employee_id: id,
             employee_name: name,
             last_name: last_name,
             phone_num: phone_num,
             mail: mail,
             address: address,
-            pass: pass
+            pass: pass,
+            id : id
         }
         }).then(res => {
             if(res.data.code === 200){
