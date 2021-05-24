@@ -1,6 +1,7 @@
 const express = require("express");
 const employee = express.Router();
 const db = require("../config/database");
+const jwt = require('jsonwebtoken');
 // Agregar empleados
 employee.post("/", async (req, res, next) =>{
     const { employee_name, last_name, phone_num, mail, address, pass } = req.body;
