@@ -30,10 +30,11 @@ function displayEmployee(employees) {
     //BUSCADOR
     var body = document.getElementById("body");
     var div = document.createElement("div");
-    div.setAttribute("class", "mb-4");
+    div.setAttribute("class", "box");
+    div.setAttribute("style", "margin: 20px, 20px, 20px");
     var tabla = document.createElement("table");
     tabla.id = "resultado";
-    tabla.setAttribute("class", "class-form")
+    tabla.setAttribute("class", "table-light")
     var inputBuscador = document.getElementById("inputTexto");
     // inputBuscador.type = "text";
     // inputBuscador.id = "inputTexto";
@@ -45,46 +46,46 @@ function displayEmployee(employees) {
     const inputTexto = document.querySelector('#inputTexto');
     const resultado = document.querySelector('#resultado');
     resultado.innerHTML = `
-    <tr class="table-secondary">
-        <td class="table-primary" style="color:black">ID</td>
-        <td class="table-primary" style="color:black">Nombre(s)</td>
-        <td class="table-primary" style="color:black">Apellido(s)</td>
-        <td class="table-primary" style="color:black">Correo</td>
-        <td class="table-primary" style="color:black">Contraseña</td>
-        <td class="table-primary" style="color:black">Numero de Teléfono</td>
-        <td class="table-primary" style="color:black">Dirección</td>
-        <td class="table-primary" style="color:black">Borrar</td>
-        <td class="table-primary" style="color:black">Modificar</td>
+    <tr class="table-info">
+        <td class="table-info">ID</td>
+        <td class="table-info">Nombre(s)</td>
+        <td class="table-info">Apellido(s)</td>
+        <td class="table-info">Correo</td>
+        <td class="table-info">Contraseña</td>
+        <td class="table-info">Numero de Teléfono</td>
+        <td class="table-info">Dirección</td>
+        <td class="table-info">Borrar</td>
+        <td class="table-info">Modificar</td>
     </tr>`;
     for(let employee of employees){
             resultado.innerHTML += `
                 <tbody>
-                    <tr class="table-primary">
-                        <td class="table-primary"id="id" value=${employee.employee_id}>${employee.employee_id}</td>
-                        <td class="table-primary">${employee.employee_name}</td>
-                        <td class="table-primary">${employee.last_name}</td>
-                        <td class="table-primary">${employee.mail}</td>
-                        <td class="table-primary">${employee.pass}</td>
-                        <td class="table-primary">${employee.phone_num}</td>
-                        <td class="table-primary">${employee.address}</td>
-                        <td class="table-primary"><button class="btn btn-danger" onclick="Borrar(${employee.employee_id})">Eliminar</button></td>
-                        <td class="table-primary"><button class="btn btn-info" onclick="a(${employee.employee_id})">Modificar</button></td>
+                    <tr class="table-light">
+                        <td class="table-light" id="id" value=${employee.employee_id}>${employee.employee_id}</td>
+                        <td class="table-light">${employee.employee_name}</td>
+                        <td class="table-light">${employee.last_name}</td>
+                        <td class="table-light">${employee.mail}</td>
+                        <td class="table-light">${employee.pass}</td>
+                        <td class="table-light">${employee.phone_num}</td>
+                        <td class="table-light">${employee.address}</td>
+                        <td class="table-light"><button class="btn btn-danger" onclick="Borrar(${employee.employee_id})">Eliminar</button></td>
+                        <td class="table-light"><button class="btn btn-info" onclick="a(${employee.employee_id})">Modificar</button></td>
                     </tr>
                 </tbody>
             `}
 
     const filtrar = ()=>{
         resultado.innerHTML = `
-        <tr class="table-secondary">
-            <td class="table-primary">ID</td>
-            <td class="table-primary">Nombre(s)</td>
-            <td class="table-primary">Apellido(s)</td>
-            <td class="table-primary">Correo</td>
-            <td class="table-primary">Contraseña</td>
-            <td class="table-primary">Numero de Teléfono</td>
-            <td class="table-primary">Dirección</td>
-            <td class="table-primary">Borrar</td>
-            <td class="table-primary">Modificar</td>
+        <tr class="table-info">
+            <td class="table-info">ID</td>
+            <td class="table-info">Nombre(s)</td>
+            <td class="table-info">Apellido(s)</td>
+            <td class="table-info">Correo</td>
+            <td class="table-info">Contraseña</td>
+            <td class="table-info">Numero de Teléfono</td>
+            <td class="table-info">Dirección</td>
+            <td class="table-info">Borrar</td>
+            <td class="table-info">Modificar</td>
         </tr>`;
         const texto = inputTexto.value.toLowerCase();
         for(let employee of employees){
@@ -92,16 +93,16 @@ function displayEmployee(employees) {
             if(nombre.indexOf(texto) != -1){
                 resultado.innerHTML += `
                     <tbody>
-                        <tr>
-                            <td id="id" value=${employee.employee_id}>${employee.employee_id}</td>
-                            <td>${employee.employee_name}</td>
-                            <td>${employee.last_name}</td>
-                            <td>${employee.mail}</td>
-                            <td>${employee.pass}</td>
-                            <td>${employee.phone_num}</td>
-                            <td>${employee.address}</td>
-                            <td><button class="btn btn-danger" onclick="Borrar(${employee.employee_id})">Eliminar</button></td>
-                            <td><button class="btn btn-info" onclick="a(${employee.employee_id})">Modificar</button></td>
+                        <tr class="table-light">
+                            <td class="table-light" id="id" value=${employee.employee_id}>${employee.employee_id}</td>
+                            <td class="table-light">${employee.employee_name}</td>
+                            <td class="table-light">${employee.last_name}</td>
+                            <td class="table-light">${employee.mail}</td>
+                            <td class="table-light">${employee.pass}</td>
+                            <td class="table-light">${employee.phone_num}</td>
+                            <td class="table-light">${employee.address}</td>
+                            <td class="table-light"><button class="btn btn-danger" onclick="Borrar(${employee.employee_id})">Eliminar</button></td>
+                            <td class="table-light"><button class="btn btn-info" onclick="a(${employee.employee_id})">Modificar</button></td>
                         </tr>
                     </tbody>
                 `
