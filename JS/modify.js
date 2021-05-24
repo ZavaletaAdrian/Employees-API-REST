@@ -138,12 +138,9 @@ function Modify(){
     // console.log(address);
     // console.log('https://node-js-final.herokuapp.com/employees/' + id);
 
-    axios({
-        method: "PUT",
-        // headers:{
-        //     token : localStorage.getItem("token")
-        // },
-        url: 'https://node-js-final.herokuapp.com/employees/' + id,
+    axios.put("https://node-js-final.herokuapp.com/employees/", {
+        params: id,
+        token: localStorage.getItem("token"),
         data:{
             employee_id: id,
             employee_name: name,
@@ -153,14 +150,40 @@ function Modify(){
             address: address,
             pass: pass
         }
-    }).then(res => {
-        if(res.data.code === 200){
-            // localStorage.setItem("token", res.data.message);
-            console.log(res);
-            // alert("Actualización Exitosa!");
-            window.location.href = "employees.html";
-        }
-    }).catch(error =>{
-        console.log(error.response);
-    });
+        }).then(res => {
+            if(res.data.code === 200){
+                // localStorage.setItem("token", res.data.message);
+                console.log(res);
+                // alert("Actualización Exitosa!");
+                window.location.href = "employees.html";
+            }
+        }).catch(error =>{
+            console.log(error.response);
+        });
+    
+
+    //     method: "PUT",
+    //     // headers:{
+    //     //     token : localStorage.getItem("token")
+    //     // },
+    //     url: 'https://node-js-final.herokuapp.com/employees/' + id,
+    //     data:{
+    //         employee_id: id,
+    //         employee_name: name,
+    //         last_name: last_name,
+    //         phone_num: phone_num,
+    //         mail: mail,
+    //         address: address,
+    //         pass: pass
+    //     }
+    // }).then(res => {
+    //     if(res.data.code === 200){
+    //         // localStorage.setItem("token", res.data.message);
+    //         console.log(res);
+    //         // alert("Actualización Exitosa!");
+    //         window.location.href = "employees.html";
+    //     }
+    // }).catch(error =>{
+    //     console.log(error.response);
+    // });
 }
