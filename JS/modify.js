@@ -22,7 +22,7 @@ function loadId(){
     // console.log(c);
     axios.get(url + "employees/" + c, headers)
     .then(function(res){
-        console.log(res);
+        // console.log(res);
         infoInputs(res.data.message[0]);
     }).catch(function(err){
         console.log(err);
@@ -129,22 +129,20 @@ function Modify(){
     var phone_num = document.getElementById('phone_numINP').value;
     var address = document.getElementById('addressINP').value;
     
-    console.log(id);
-    console.log(name);
-    console.log(mail);
-    console.log(last_name);
-    console.log(pass);
-    console.log(phone_num);
-    console.log(address);
-    console.log('https://node-js-final.herokuapp.com/employees/' + id);
+    // console.log(id);
+    // console.log(name);
+    // console.log(mail);
+    // console.log(last_name);
+    // console.log(pass);
+    // console.log(phone_num);
+    // console.log(address);
+    // console.log('https://node-js-final.herokuapp.com/employees/' + id);
 
     axios({
-        method: 'put',
-        headers : {
-            // 'Content-Type' : 'application/json',
-            // 'Accept' : 'application/json',
-            'Authorization' : 'Bearer ' + localStorage.getItem("token")
-          },
+        method: "put",
+        // headers:{
+        //     token : localStorage.getItem("token")
+        // },
         url: 'https://node-js-final.herokuapp.com/employees/' + id,
         data:{
             employee_id: id,
@@ -155,14 +153,14 @@ function Modify(){
             address: address,
             pass: pass
         }
-    }).then(function(res){
+    }).then(res => {
         if(res.data.code === 200){
-            localStorage.setItem("token", res.data.message);
-            console.log(JSON.stringify(res));
-            alert("Actualización Exitosa!");
+            // localStorage.setItem("token", res.data.message);
+            console.log(res);
+            // alert("Actualización Exitosa!");
             window.location.href = "employees.html";
         }
-    }).catch(function(err){
-        console.log(err);
+    }).catch(error =>{
+        console.log(error.response);
     });
 }
