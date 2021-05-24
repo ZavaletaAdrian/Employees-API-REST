@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crear Empleado</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./JS/employees.js"></script>
+    <!-- <script src="bootstrap.bundle.min.js"></script> -->
+
+    <style>
+    body{
+        background: #4286f4;
+        background: linear-gradient(to right, #373B44, #4286f4);
+    }
+    .bg{
+        background-image: url(img/compu4.jpg);
+        background-position: center center;
+        background-size: 100%;
+    }
+    </style>
+</head>
+<body>
+      <div class="container w-100 bg-primary mt-5 rounded shadow">
+            <div class="row aling-items-stretch">
+                 <div class="col bg ">
+
+                 </div>
+                 <div class="col bg-white">
+                    <div class="text-end ">
+                        <div src="logo" width="48" alt="">
+                    </div>
+                    <h2 class="fw-bold text-center pt-5 py-5">Crear Empleado</h2>
+
+
+                    <!--singin-->
+                    <!-- <form action="#"> -->
+                        <div class="mb-4">
+                            <label for="text" class="form-label">Nombre(s)</label>
+                            <input type="text" class="form-control" name="user_name" id="name" placeholder="Nombre(s)">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="text" class="form-label">Apellido(s)</label>
+                            <input type="text" class="form-control" name="user_name" id="last_name" placeholder="Apellido(s)">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="email" class="form-label">Correo electronico</label>
+                            <input type="email" class="form-control" name="email" id="mail" placeholder="example@mail.com">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="password" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" name="password" id="pass" placeholder="**********">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="text" class="form-label">Numero Telefonico</label>
+                            <input type="text" class="form-control" name="phone" id="phone_num" placeholder="(123) 111-22-33">
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="text" class="form-label">Direccion</label>
+                            <input type="text" class="form-control" name="address" id="address" placeholder="Direccion">
+                        </div>
+                        
+                        <div class="d-grid text-center">
+                            <button type="submit" class="btn btn-primary" id="registrarme" onclick="CreateEmployee()">Crear</button><br><br>
+                        </div>
+
+                    <!-- </form> -->
+                   
+                 </div>
+
+            </div>
+      </div>
+</body>
+</html>
