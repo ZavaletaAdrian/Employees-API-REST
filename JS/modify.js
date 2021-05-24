@@ -133,8 +133,7 @@ function Modify(){
         url: url + 'employees/',
         method: 'put',
         headers: {
-            Accept: 'application/json',
-            "Content-type": 'application/json'
+            'Authorization': "Bearer " + localStorage.getItem("token")
         },
         data: {
             employee_name: name.value,
@@ -149,49 +148,10 @@ function Modify(){
         if(res.data.code === 200){
             // localStorage.setItem("token", res.data.message);
             console.log(res);
-            // alert("Actualización Exitosa!");
+            alert("Actualización Exitosa!");
             window.location.href = "employees.html";
         }
     }).catch(error =>{
         console.log(error.response);
     });
 };
-// console.log(id);
-// console.log(name);
-// console.log(mail);
-    // console.log(last_name);
-    // console.log(pass);
-    // console.log(phone_num);
-    // console.log(address);
-    // console.log('https://node-js-final.herokuapp.com/employees/' + id);
-
-    // axios.put(url + 'employees/', {
-    //     headers,
-    //     data:{
-    //     }
-    
-
-    //     method: "PUT",
-    //     // headers:{
-    //     //     token : localStorage.getItem("token")
-    //     // },
-    //     url: 'https://node-js-final.herokuapp.com/employees/' + id,
-    //     data:{
-    //         employee_id: id,
-    //         employee_name: name,
-    //         last_name: last_name,
-    //         phone_num: phone_num,
-    //         mail: mail,
-    //         address: address,
-    //         pass: pass
-    //     }
-    // }).then(res => {
-    //     if(res.data.code === 200){
-    //         // localStorage.setItem("token", res.data.message);
-    //         console.log(res);
-    //         // alert("Actualización Exitosa!");
-    //         window.location.href = "employees.html";
-    //     }
-    // }).catch(error =>{
-    //     console.log(error.response);
-    // });
