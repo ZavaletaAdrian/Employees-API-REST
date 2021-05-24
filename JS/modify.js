@@ -121,6 +121,7 @@ function infoInputs(empleado){
 
 function Modify(){
     var id = document.getElementById('employee_idINP').value;
+    id = parseInt(id);
     var name = document.getElementById('employee_nameINP').value;
     var last_name = document.getElementById('last_nameINP').value;
     var mail = document.getElementById('mailINP').value;
@@ -128,17 +129,22 @@ function Modify(){
     var phone_num = document.getElementById('phone_numINP').value;
     var address = document.getElementById('addressINP').value;
     
-    // console.log(id);
-    // console.log(name);
-    // console.log(mail);
-    // console.log(last_name);
-    // console.log(pass);
-    // console.log(phone_num);
-    // console.log(address);
-    // console.log('https://node-js-final.herokuapp.com/employees/' + id);
+    console.log(id);
+    console.log(name);
+    console.log(mail);
+    console.log(last_name);
+    console.log(pass);
+    console.log(phone_num);
+    console.log(address);
+    console.log('https://node-js-final.herokuapp.com/employees/' + id);
 
     axios({
         method: 'put',
+        headers : {
+            // 'Content-Type' : 'application/json',
+            // 'Accept' : 'application/json',
+            'Authorization' : 'Bearer ' + localStorage.getItem("token")
+          },
         url: 'https://node-js-final.herokuapp.com/employees/' + id,
         data:{
             employee_id: id,
