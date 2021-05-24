@@ -7,8 +7,8 @@ employee.post("/", async (req, res, next) =>{
     const { employee_name, last_name, phone_num, mail, address, pass } = req.body;
     
     if(employee_name && last_name && phone_num && mail && address && pass){
-        let query = "INSERT INTO employees (employee_name, last_name, phone_num, mail, pass, address)";
-        query += ` VALUES('${employee_name}', ${last_name}, ${phone_num}, ${mail}, ${pass}, ${address})`;
+        let query = "INSERT INTO employees (employee_name, last_name, mail, pass, phone_num, address)";
+        query += ` VALUES('${employee_name}', '${last_name}', '${mail}', '${pass}', '${phone_num}', '${address}')`;
     
         const rows = await db.query(query);
     
