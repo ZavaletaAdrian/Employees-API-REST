@@ -34,10 +34,10 @@ function displayEmployee(employees) {
     var tabla = document.createElement("table");
     tabla.id = "resultado";
     tabla.setAttribute("class", "class-form")
-    var inputBuscador = document.createElement("input");
-    inputBuscador.type = "text";
-    inputBuscador.id = "inputTexto";
-    inputBuscador.setAttribute("class", "form-control");
+    var inputBuscador = document.getElementById("inputTexto");
+    // inputBuscador.type = "text";
+    // inputBuscador.id = "inputTexto";
+    // inputBuscador.setAttribute("class", "form-control");
     div.appendChild(inputBuscador);
     div.appendChild(tabla);
     body.appendChild(div);
