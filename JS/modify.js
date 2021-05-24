@@ -139,7 +139,7 @@ function Modify(){
     // console.log('https://node-js-final.herokuapp.com/employees/' + id);
 
     axios({
-        method: "put",
+        method: "PUT",
         // headers:{
         //     token : localStorage.getItem("token")
         // },
