@@ -131,7 +131,15 @@ function displayEmployee(employees) {
         const texto = inputTexto.value.toLowerCase();
         for(let employee of employees){
             let nombre = employee.employee_name.toLowerCase();
-            if(nombre.indexOf(texto) != -1){
+            let apellido = employee.last_name.toLowerCase();
+            let mail = employee.mail.toLowerCase();
+            let phone = employee.phone_num.toLowerCase();
+            let address = employee.address.toLowerCase();
+
+
+
+            if(nombre.indexOf(texto) != -1 || apellido.indexOf(texto) != -1 || mail.indexOf(texto) != -1 ||
+            phone.indexOf(texto) != -1 || address.indexOf(texto) != -1){
                 resultado.innerHTML += `
                     <tbody>
                         <tr class="table-light">
@@ -148,15 +156,22 @@ function displayEmployee(employees) {
                     </tbody>
                 `
             }
+            function contarTagsTR() {
+                var trs = document.getElementsByTagName('tr');
+                var i=0;
+                for (var tr in trs){i++;}
+                return i;
+            }
         }
-        if(resultado.innerHTML === ''){
+        if(contarTagsTR() < 5 ){
             resultado.innerHTML += `
-                <li>Empleado no encontrado</li>
+                <label>Empleado no encontrado</label>
                 `
         }
     }
     inputTexto.addEventListener('keyup', filtrar);
 }
+
 
 function a(identificador){
     axios.get(url + "employees/" + identificador, headers)
