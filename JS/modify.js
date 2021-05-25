@@ -146,10 +146,10 @@ function Modify(){
         }
     }).then(res => {
         if(res.data.code === 200){
-            // localStorage.setItem("token", res.data.message);
-            console.log(res);
-            alert("Actualización Exitosa!");
-            window.location.href = "employees.html";
+            swal("Usuario Actualizado", "Usuario Actualizado Correctamente", "success")
+            .then(() => {
+                window.location.href = "employees.html";
+            });
         }
     }).catch(error =>{
         console.log(error.response);

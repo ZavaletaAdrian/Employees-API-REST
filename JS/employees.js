@@ -56,10 +56,10 @@ function CreateEmployee(){
         }
     }).then(res => {
         if(res.data.code === 201){
-            // localStorage.setItem("token", res.data.message);
-            console.log(res);
-            alert("Empleado Creado Exitosamente!");
-            window.location.href = "employees.html";
+            swal("Usuario Creado", "Usuario Creado Correctamente", "success")
+            .then(() => {
+                window.location.href = "employees.html";
+            });
         }
     }).catch(error =>{
         console.log(error.response);
@@ -173,9 +173,10 @@ function Borrar(identificador){
     axios.delete(url + "employees/" + identificador, headers)
     .then(function(res){
         if(res.data.code === 200){
-            // localStorage.setItem("token", res.data.message);
-            window.location.href = "employees.html";
-            alert("Empleado Eliminado Correctamente");
+            swal("Usuario Eliminado", "Usuario Eliminado Correctamente", "success")
+            .then(() => {
+                window.location.href = "employees.html";
+            });
         }else{
             alert("No puedes eliminar este usuario!");
         }
@@ -183,16 +184,3 @@ function Borrar(identificador){
         console.log(err);
     });
 }
-
-// function Modify(identificador){
-//     axios.put(url + "employees/" + identificador, headers)
-//     .then(function(res){
-//         if(res.data.code === 200){
-//             // localStorage.setItem("token", res.data.message);
-//             window.location.href = "formEmployee.html";
-//         }
-//     }).catch(function(err){
-//         console.log(err);
-//     });
-// }
-
